@@ -1,5 +1,6 @@
 package igenius.natthapol.mytraffic;
 
+import android.content.Intent;
 import android.media.MediaPlayer;
 import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
@@ -18,7 +19,7 @@ public class MainActivity extends AppCompatActivity {
     private ListView trafficListView;
     private Button aboutMeButton; // ctrl + shift + enter
 
-
+    // atl + insert -> popup list of keyword
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,6 +41,12 @@ public class MainActivity extends AppCompatActivity {
                 // getApplication -> get file from disk
                 MediaPlayer buttonMediaPlayer = MediaPlayer.create(getBaseContext(),R.raw.cow);
                 buttonMediaPlayer.start();
+
+                // Intent to webview
+                Intent objIntent = new Intent(Intent.ACTION_VIEW);  // shift + ctrl + enter -> complete sent.
+                objIntent.setData(Uri.parse("https://youtu.be/ndcPc0ewe9U")); //
+                startActivity(objIntent);
+                // Event
             } // Event
         });
     } // buttonController
